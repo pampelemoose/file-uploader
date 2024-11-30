@@ -1,4 +1,10 @@
+using api_server.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContextFactory<UploadDbContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("UploadDb")));
 
 // Add services to the container.
 
