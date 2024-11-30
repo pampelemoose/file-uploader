@@ -6,3 +6,17 @@ public enum TransactionStatus
     Rejected,
     Done
 }
+
+public static class StatusExtension
+{
+    public static string ToExternal(this TransactionStatus status)
+    {
+        return status switch
+        {
+            TransactionStatus.Approved => "A",
+            TransactionStatus.Rejected => "R",
+            TransactionStatus.Done => "D",
+            _ => ""
+        };
+    }
+}
